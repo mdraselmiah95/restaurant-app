@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
+import { motion } from "framer-motion";
 
 //Logo
 import Logo from "../img/logo.png";
@@ -27,6 +29,10 @@ const Header = () => {
             Service
           </li>
         </ul>
+
+        <div className="relative flex items-center justify-center">
+          <MdShoppingBasket className="text-textColor text-2xl  cursor-pointer" />
+        </div>
       </div>
     </header>
   );
