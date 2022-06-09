@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
 
-//Logo
+//Images
 import Logo from "../img/logo.png";
+import Avatar from "../img/avatar.png";
 
 const Header = () => {
   return (
@@ -36,6 +37,11 @@ const Header = () => {
             <p className="text-xs text-white font-semibold">2</p>
           </div>
         </div>
+        <img
+          src={Avatar}
+          className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
+          alt="userprofile"
+        />
       </div>
     </header>
   );
