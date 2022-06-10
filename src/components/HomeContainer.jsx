@@ -2,7 +2,7 @@ import React from "react";
 
 //images
 import Delivery from "../img/delivery.png";
-
+import HeroBg from "../img/heroBg.png";
 const HomeContainer = () => {
   return (
     <section
@@ -43,6 +43,14 @@ const HomeContainer = () => {
         >
           Order Now
         </button>
+      </div>
+      <div className="relative flex items-center flex-1 py-2">
+        <img
+          src={HeroBg}
+          className="w-full ml-auto  h-420 lg:w-auto lg:h-650"
+          alt="hero-bg"
+        />
+        <div className="absolute top-0 left-0 flex flex-wrap items-center justify-center w-full h-full gap-4 py-4 lg:px-32"></div>
       </div>
     </section>
   );
