@@ -12,7 +12,7 @@ const firebaseConfig = {
   appId: "1:124579204505:web:903a10992bdd053b38d708",
 };
 
-console.log(firebaseConfig);
+// console.log(firebaseConfig);
 const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
 
 const firestore = getFirestore(app);
