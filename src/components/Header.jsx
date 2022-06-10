@@ -64,6 +64,7 @@ const Header = () => {
             className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
             alt="userprofile"
             onClick={login}
+            referrerPolicy="no-referrer"
           />
         </div>
       </div>
