@@ -31,10 +31,9 @@ const HomeContainer = () => {
         </p>
 
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima velit
-          eaque fugit distinctio est nam voluptatum architecto, porro iusto
-          deserunt recusandae ipsa minus eos sunt, dolores illo repellat facere
-          suscipit!
+          “Are You Hungry?”. That is the basic yet profound philosophy that
+          drives Food. Established in 2013. We are passionate about food and
+          deliver food to your doorstep with the same passion.
         </p>
 
         <button
@@ -47,7 +46,7 @@ const HomeContainer = () => {
       <div className="relative flex items-center flex-1 py-2">
         <img
           src={HeroBg}
-          className="w-full ml-auto  h-420 lg:w-auto lg:h-650"
+          className="w-full ml-auto h-420 lg:w-auto lg:h-650"
           alt="hero-bg"
         />
         <div className="absolute top-0 left-0 flex flex-wrap items-center justify-center w-full h-full gap-4 py-4 lg:px-32"></div>
