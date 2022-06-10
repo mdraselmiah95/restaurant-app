@@ -72,6 +72,24 @@ const Header = () => {
             onClick={login}
             referrerPolicy="no-referrer"
           />
+          <div className="absolute right-0 flex flex-col w-40 rounded-lg shadow-xl bg-gray-50 top-12">
+            {user && user.email === "russelroy15@gmail.com" && (
+              <Link to={"/createItem"}>
+                <p
+                  className="flex items-center gap-3 px-4 py-2 text-base transition-all duration-100 ease-in-out cursor-pointer hover:bg-slate-100 text-textColor"
+                  onClick={() => setIsMenu(false)}
+                >
+                  New Item <MdAdd />
+                </p>
+              </Link>
+            )}
+            <p
+              className="flex items-center gap-3 px-4 py-2 text-base transition-all duration-100 ease-in-out cursor-pointer hover:bg-slate-100 text-textColor"
+              // onClick={logout}
+            >
+              Logout <MdLogout />
+            </p>
+          </div>
         </div>
       </div>
     </header>
