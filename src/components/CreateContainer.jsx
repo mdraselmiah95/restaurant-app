@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  MdFastfood,
+  MdCloudUpload,
+  MdDelete,
+  MdFoodBank,
+  MdAttachMoney,
+} from "react-icons/md";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -28,6 +35,20 @@ const CreateContainer = () => {
             {msg}
           </motion.p>
         )}
+
+        <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
+          <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
+            <MdFastfood className="text-xl text-gray-700" />
+            <input
+              type="text"
+              required
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Give me a title..."
+              className="w-full h-full text-lg bg-transparent border-none outline-none placeholder:text-gray-400 text-textColor"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
