@@ -21,6 +21,10 @@ const CreateContainer = () => {
   const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  //uploadImage
+  const uploadImage = (e) => {};
+  const deleteImage = (e) => {};
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
       <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
@@ -92,7 +96,7 @@ const CreateContainer = () => {
                       type="file"
                       name="uploadimage"
                       accept="image/*"
-                      // onChange={uploadImage}
+                      onChange={uploadImage}
                       className="w-0 h-0"
                     />
                   </label>
@@ -108,7 +112,7 @@ const CreateContainer = () => {
                     <button
                       type="button"
                       className="absolute p-3 text-xl transition-all duration-500 ease-in-out bg-red-500 rounded-full outline-none cursor-pointer bottom-3 right-3 hover:shadow-md"
-                      // onClick={deleteImage}
+                      onClick={deleteImage}
                     >
                       <MdDelete className="text-white" />
                     </button>
@@ -117,6 +121,33 @@ const CreateContainer = () => {
               )}
             </>
           )}
+        </div>
+
+        <div className="flex flex-col items-center w-full gap-3 md:flex-row">
+                <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
+            <MdFoodBank className="text-2xl text-gray-700" />
+            <input
+              type="text"
+              required
+              value={calories}
+              onChange={(e) => setCalories(e.target.value)}
+              placeholder="Calories"
+              className="w-full h-full text-lg bg-transparent border-none outline-none placeholder:text-gray-400 text-textColor"
+            />
+          </div>
+
+          <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
+            <MdAttachMoney className="text-2xl text-gray-700" />
+            <input
+              type="text"
+              required
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Price"
+              className="w-full h-full text-lg bg-transparent border-none outline-none placeholder:text-gray-400 text-textColor"
+            />
+          </div>
+        </div>
         </div>
       </div>
     </div>
