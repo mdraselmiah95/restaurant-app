@@ -9,6 +9,7 @@ import {
 } from "react-icons/md";
 //Data
 import { categories } from "./utils/data";
+import Loader from "./Loader";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -71,6 +72,51 @@ const CreateContainer = () => {
                 </option>
               ))}
           </select>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full border-2 border-gray-300 border-dotted rounded-lg cursor-pointer group h-225 md:h-340">
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              {!imageAsset ? (
+                <>
+                  <label className="flex flex-col items-center justify-center w-full h-full cursor-pointer">
+                    <div className="flex flex-col items-center justify-center w-full h-full gap-2">
+                      <MdCloudUpload className="text-3xl text-gray-500 hover:text-gray-700" />
+                      <p className="text-gray-500 hover:text-gray-700">
+                        Click here to upload
+                      </p>
+                    </div>
+                    <input
+                      type="file"
+                      name="uploadimage"
+                      accept="image/*"
+                      // onChange={uploadImage}
+                      className="w-0 h-0"
+                    />
+                  </label>
+                </>
+              ) : (
+                <>
+                  <div className="relative h-full">
+                    <img
+                      src={imageAsset}
+                      alt="uploaded-img"
+                      className="object-cover w-full h-full"
+                    />
+                    <button
+                      type="button"
+                      className="absolute p-3 text-xl transition-all duration-500 ease-in-out bg-red-500 rounded-full outline-none cursor-pointer bottom-3 right-3 hover:shadow-md"
+                      // onClick={deleteImage}
+                    >
+                      <MdDelete className="text-white" />
+                    </button>
+                  </div>
+                </>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
