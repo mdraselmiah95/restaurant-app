@@ -7,6 +7,8 @@ import {
   MdFoodBank,
   MdAttachMoney,
 } from "react-icons/md";
+//Data
+import { categories } from "./utils/data";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -48,6 +50,27 @@ const CreateContainer = () => {
               className="w-full h-full text-lg bg-transparent border-none outline-none placeholder:text-gray-400 text-textColor"
             />
           </div>
+        </div>
+
+        <div className="w-full">
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full p-2 text-base border-b-2 border-gray-200 rounded-md outline-none cursor-pointer"
+          >
+            <option value="other" className="bg-white">
+              Select Category
+            </option>
+            {categories &&
+              categories.map((item) => (
+                <option
+                  key={item.id}
+                  className="text-base capitalize bg-white border-0 outline-none text-headingColor"
+                  value={item.urlParamName}
+                >
+                  {item.name}
+                </option>
+              ))}
+          </select>
         </div>
       </div>
     </div>
