@@ -13,7 +13,22 @@ const CreateContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
-      <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4"></div>
+      <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
+        {fields && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={`w-full p-2 rounded-lg text-center text-lg font-semibold ${
+              alertStatus === "danger"
+                ? "bg-red-400 text-red-800"
+                : "bg-emerald-400 text-emerald-800"
+            }`}
+          >
+            {msg}
+          </motion.p>
+        )}
+      </div>
     </div>
   );
 };
