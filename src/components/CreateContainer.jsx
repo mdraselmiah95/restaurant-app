@@ -124,7 +124,7 @@ const CreateContainer = () => {
         </div>
 
         <div className="flex flex-col items-center w-full gap-3 md:flex-row">
-                <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
+          <div className="flex items-center w-full gap-2 py-2 border-b border-gray-300">
             <MdFoodBank className="text-2xl text-gray-700" />
             <input
               type="text"
@@ -148,6 +148,14 @@ const CreateContainer = () => {
             />
           </div>
         </div>
+        <div className="flex items-center w-full">
+          <button
+            type="button"
+            className="w-full px-12 py-2 ml-0 text-lg font-semibold text-white border-none rounded-lg outline-none md:ml-auto md:w-auto bg-emerald-500"
+            // onClick={saveDetails}
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>
