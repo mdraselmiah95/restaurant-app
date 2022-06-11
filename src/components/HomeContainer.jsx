@@ -6,6 +6,7 @@ import { heroData } from "./utils/data";
 //images
 import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
+
 const HomeContainer = () => {
   return (
     <section
@@ -49,16 +50,16 @@ const HomeContainer = () => {
       <div className="relative flex items-center flex-1 py-2">
         <img
           src={HeroBg}
-          className="w-full ml-auto  h-420 lg:w-auto lg:h-650"
+          className="w-full ml-auto h-420 lg:w-auto lg:h-650"
           alt="hero-bg"
         />
 
-        <div className="absolute top-0 left-0 flex flex-wrap items-center justify-center w-full h-full gap-4 py-4 lg:px-32">
+        <div className="absolute top-0 left-0 flex flex-wrap items-center justify-center w-full h-full gap-4 py-4 lg:px-24">
           {heroData &&
             heroData.map((n) => (
               <div
                 key={n.id}
-                className="flex flex-col items-center justify-center p-4  lg:w-190 bg-cardOverlay backdrop-blur-md rounded-3xl drop-shadow-lg"
+                className="flex flex-col items-center justify-center p-4 lg:w-190 bg-cardOverlay backdrop-blur-md rounded-3xl drop-shadow-lg"
               >
                 <img
                   src={n.imageSrc}
