@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { motion } from "framer-motion";
 import HomeContainer from "./HomeContainer";
 import RowContainer from "./RowContainer";
+import { useStateValue } from "../context/StateProvider";
 
 const MainContainer = () => {
+  const [{ foodItems, cartShow }, dispatch] = useStateValue();
+  // const [scrollValue, setScrollValue] = useState(0);
+
+  // useEffect(() => {}, [scrollValue, cartShow]);
   return (
     <div className="flex flex-col items-center justify-center w-full h-auto ">
       <HomeContainer />
@@ -30,7 +35,10 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
-        <RowContainer flag={true} />
+        <RowContainer
+          flag={true}
+          data={foodItems?.filter((item) => item.category === "fruits")}
+        />
       </section>
     </div>
   );

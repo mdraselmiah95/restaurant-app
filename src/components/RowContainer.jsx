@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 
-const RowContainer = ({ flag }) => {
+const RowContainer = ({ flag, data }) => {
+  console.log(data);
   return (
     <div
       className={`w-full flex items-center gap-3  my-12 scroll-smooth  ${
@@ -30,6 +31,19 @@ const RowContainer = ({ flag }) => {
           >
             <MdShoppingBasket className="text-white" />
           </motion.div>
+        </div>
+
+        <div className="flex flex-col items-end justify-end w-full -mt-8">
+          <p className="text-base font-semibold text-textColor md:text-lg">
+            item?.title
+          </p>
+          <p className="mt-1 text-sm text-gray-500">item?.calories Calories</p>
+
+          <div className="flex items-center gap-8">
+            <p className="text-lg font-semibold text-headingColor">
+              <span className="text-sm text-red-500">$</span> item?.price
+            </p>
+          </div>
         </div>
       </div>
     </div>
