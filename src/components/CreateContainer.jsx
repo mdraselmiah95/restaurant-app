@@ -17,6 +17,7 @@ import {
 //Data
 import { categories } from "./utils/data";
 import Loader from "./Loader";
+import { saveItem } from "./utils/firebaseFunctions";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -87,6 +88,34 @@ const CreateContainer = () => {
   const saveDetails = (e) => {
     setIsLoading(true);
     try {
+      if (!title || !calories || !imageAsset || !price || !category) {
+        setFields(true);
+        setMsg("Required fields can't be empty");
+        setAlertStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
+      } else {
+        const data = {
+          id: `${Date.now()}`,
+          title: title,
+          imageURL: imageAsset,
+          category: category,
+          calories: calories,
+          qty: 1,
+          price: price,
+        };
+        saveItem(data);
+        setIsLoading(false);
+        setFields(true);
+        setMsg("Data Uploaded successfully 😊");
+        setAlertStatus("success");
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
+        clearData();
+      }
     } catch (error) {
       console.log(error);
       setFields(true);
@@ -98,6 +127,15 @@ const CreateContainer = () => {
       }, 4000);
     }
   };
+
+  const clearData = () => {
+    setTitle("");
+    setImageAsset(null);
+    setCalories("");
+    setPrice("");
+    setCategory("Select Category");
+  };
+
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
       <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
