@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 
+//Images
+import NotFound from "../img/NotFound.svg";
+
 const RowContainer = ({ flag, data }) => {
-  console.log(data);
   return (
     <div
       className={`w-full flex items-center gap-3  my-12 scroll-smooth  ${
@@ -14,7 +16,10 @@ const RowContainer = ({ flag, data }) => {
     >
       {data && data.length > 0 ? (
         data.map((item) => (
-          <div className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative">
+          <div
+            key={item?.id}
+            className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+          >
             <div className="flex items-center justify-between w-full">
               <motion.div
                 whileHover={{ scale: 1.2 }}
@@ -53,7 +58,7 @@ const RowContainer = ({ flag, data }) => {
         ))
       ) : (
         <div className="flex flex-col items-center justify-center w-full">
-          <img src="" className="h-340" alt="notFound-img" />
+          <img src={NotFound} className="h-340" alt="notFound-img" />
           <p className="my-2 text-xl font-semibold text-headingColor">
             Items Not Available
           </p>
