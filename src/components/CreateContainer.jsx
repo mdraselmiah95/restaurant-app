@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { motion } from "framer-motion";
 import { storage } from "../firebase/firebase";
 import {
@@ -61,7 +66,24 @@ const CreateContainer = () => {
       }
     );
   };
-  const deleteImage = (e) => {};
+
+  //Delete Image
+  const deleteImage = () => {
+    setIsLoading(true);
+    const deleteRef = ref(storage, imageAsset);
+    deleteObject(deleteRef).then(() => {
+      setImageAsset(null);
+      setIsLoading(false);
+      setFields(true);
+      setMsg("Image deleted successfully 😊");
+      setAlertStatus("success");
+      setTimeout(() => {
+        setFields(false);
+      }, 4000);
+    });
+  };
+
+  //Save Details
   const saveDetails = (e) => {};
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
