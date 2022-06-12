@@ -84,7 +84,20 @@ const CreateContainer = () => {
   };
 
   //Save Details
-  const saveDetails = (e) => {};
+  const saveDetails = (e) => {
+    setIsLoading(true);
+    try {
+    } catch (error) {
+      console.log(error);
+      setFields(true);
+      setMsg("Error while uploading : Try AGain 🙇");
+      setAlertStatus("danger");
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+    }
+  };
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
       <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
