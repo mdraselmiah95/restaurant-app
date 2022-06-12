@@ -1,7 +1,7 @@
 import React from "react";
 
 //data
-import { heroData } from "./utils/data";
+import { heroData } from "../utils/data";
 
 //images
 import Delivery from "../img/delivery.png";

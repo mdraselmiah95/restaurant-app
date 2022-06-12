@@ -15,11 +15,11 @@ import {
   MdAttachMoney,
 } from "react-icons/md";
 //Data
-import { categories } from "./utils/data";
 import Loader from "./Loader";
-import { getAllFoodItems, saveItem } from "./utils/firebaseFunctions";
-import { useStateValue } from "./context/StateProvider";
-import { actionType } from "./context/reducer";
+import { useStateValue } from "../context/StateProvider";
+import { categories } from "../utils/data";
+import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
+import { actionType } from "../context/reducer";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");

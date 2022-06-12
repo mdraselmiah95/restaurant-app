@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 //Images
 import Logo from "../img/logo.png";
 import Avatar from "../img/avatar.png";
-
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 import { app } from "../firebase/firebase";
-import { useStateValue } from "./context/StateProvider";
-import { actionType } from "./context/reducer";
 
 const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
