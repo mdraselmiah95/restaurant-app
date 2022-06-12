@@ -7,9 +7,9 @@ import { useStateValue } from "../context/StateProvider";
 
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
-  // const [scrollValue, setScrollValue] = useState(0);
+  const [scrollValue, setScrollValue] = useState(0);
 
-  // useEffect(() => {}, [scrollValue, cartShow]);
+  useEffect(() => {}, [scrollValue]);
   return (
     <div className="flex flex-col items-center justify-center w-full h-auto ">
       <HomeContainer />
@@ -22,13 +22,14 @@ const MainContainer = () => {
           <div className="items-center hidden gap-3 md:flex">
             <motion.div
               whileTap={{ scale: 0.75 }}
-              // onClick={() => setScrollValue(-200)}
+              onClick={() => setScrollValue(-200)}
               className="flex items-center justify-center w-8 h-8 bg-orange-300 rounded-lg cursor-pointer hover:bg-orange-500 hover:shadow-lg"
             >
               <MdChevronLeft className="text-lg text-white" />
             </motion.div>
             <motion.div
               whileTap={{ scale: 0.75 }}
+              onClick={() => setScrollValue(200)}
               className="flex items-center justify-center w-8 h-8 transition-all duration-100 ease-in-out bg-orange-300 rounded-lg cursor-pointer hover:bg-orange-500 hover:shadow-lg"
             >
               <MdChevronRight className="text-lg text-white" />
@@ -37,6 +38,7 @@ const MainContainer = () => {
         </div>
         <RowContainer
           flag={true}
+          scrollValue={scrollValue}
           data={foodItems?.filter((item) => item.category === "fruits")}
         />
       </section>
