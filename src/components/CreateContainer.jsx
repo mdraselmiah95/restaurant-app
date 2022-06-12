@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { motion } from "framer-motion";
+import { storage } from "../firebase/firebase";
 import {
   MdFastfood,
   MdCloudUpload,
@@ -23,8 +25,44 @@ const CreateContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   //uploadImage
-  const uploadImage = (e) => {};
+  const uploadImage = (e) => {
+    setIsLoading(true);
+    const imageFile = e.target.files[0];
+    const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const uploadProgress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
+      (error) => {
+        console.log(error);
+        setFields(true);
+        setMsg("Error while uploading : Try AGain 🙇");
+        setAlertStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImageAsset(downloadURL);
+          setIsLoading(false);
+          setFields(true);
+          setMsg("Image uploaded successfully 😊");
+          setAlertStatus("success");
+          setTimeout(() => {
+            setFields(false);
+          }, 4000);
+        });
+      }
+    );
+  };
   const deleteImage = (e) => {};
+  const saveDetails = (e) => {};
   return (
     <div className="flex items-center justify-center w-full min-h-screen">
       <div className="w-[90%] md:w-[50%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
@@ -152,7 +190,7 @@ const CreateContainer = () => {
           <button
             type="button"
             className="w-full px-12 py-2 ml-0 text-lg font-semibold text-white border-none rounded-lg outline-none md:ml-auto md:w-auto bg-emerald-500"
-            // onClick={saveDetails}
+            onClick={saveDetails}
           >
             Save
           </button>
