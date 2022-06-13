@@ -3,7 +3,8 @@ import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
 
 //Images
-import NotFound from "../img/NotFound.svg";
+// import NotFound from "../img/NotFound.svg";
+import Spinner from "./Spinner";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
@@ -62,11 +63,15 @@ const RowContainer = ({ flag, data, scrollValue }) => {
           </div>
         ))
       ) : (
-        <div className="flex flex-col items-center justify-center w-full">
-          <img src={NotFound} className="h-340" alt="notFound-img" />
-          <p className="my-2 text-xl font-semibold text-headingColor">
-            Items Not Available
-          </p>
+        // <div className="flex flex-col items-center justify-center w-full">
+        //   <img src={NotFound} className="h-340" alt="notFound-img" />
+        //   <p className="my-2 text-xl font-semibold text-headingColor">
+        //     Items Not Available
+        //   </p>
+        // </div>
+
+        <div className="m-auto">
+          <Spinner />
         </div>
       )}
     </div>
