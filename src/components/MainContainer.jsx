@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import HomeContainer from "./HomeContainer";
 import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
+import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
@@ -42,6 +43,7 @@ const MainContainer = () => {
           data={foodItems?.filter((item) => item.category === "fruits")}
         />
       </section>
+      <MenuContainer />
     </div>
   );
 };
