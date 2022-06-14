@@ -30,6 +30,14 @@ const CartContainer = () => {
     console.log(tot);
   }, [tot, flag]);
 
+  const clearCart = () => {
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [],
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify([]));
+  };
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
@@ -46,7 +54,7 @@ const CartContainer = () => {
         <motion.p
           whileTap={{ scale: 0.75 }}
           className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md  cursor-pointer text-textColor text-base"
-          //   onClick={clearCart}
+          onClick={clearCart}
         >
           Clear <RiRefreshFill />
         </motion.p>
