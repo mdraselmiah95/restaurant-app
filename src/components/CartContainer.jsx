@@ -3,6 +3,7 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
 
 import { motion } from "framer-motion";
+import CartItem from "./CartItem";
 
 const CartContainer = () => {
   return (
@@ -20,11 +21,13 @@ const CartContainer = () => {
         >
           Clear <RiRefreshFill />
         </motion.p>
+
         {/* bottom section */}
         <div className="w-full h-full bg-cartBg rounded-t-[2rem] flex flex-col">
           {/* cart Items section */}
           <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
             {/* cart Item */}
+            <CartItem />
           </div>
         </div>
       </div>
