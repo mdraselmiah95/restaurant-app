@@ -83,9 +83,13 @@ const Header = () => {
           onClick={showCart}
         >
           <MdShoppingBasket className="text-2xl cursor-pointer text-textColor" />
-          <div className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 bg-cartNumBg">
-            <p className="text-xs font-semibold text-white">2</p>
-          </div>
+          {cartItems && cartItems.length > 0 && (
+            <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+              <p className="text-xs text-white font-semibold">
+                {cartItems.length}
+              </p>
+            </div>
+          )}
         </div>
         <div className="relative">
           <motion.img
@@ -134,7 +138,7 @@ const Header = () => {
           {cartItems && cartItems.length > 0 && (
             <div className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 bg-cartNumBg">
               <p className="text-xs font-semibold text-white">
-                {/* {cartItems.length} */}
+                {cartItems.length}
               </p>
             </div>
           )}
