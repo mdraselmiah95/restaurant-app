@@ -18,7 +18,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
       type: actionType.SET_CARTITEMS,
       cartItems: items,
     });
-    // localStorage.setItem("cartItems", JSON.stringify(items));
+    localStorage.setItem("cartItems", JSON.stringify(items));
   };
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
   useEffect(() => {
     addToCart();
   }, [items]);
+
   return (
     <div
       ref={rowContainer}
