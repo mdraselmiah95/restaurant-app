@@ -12,12 +12,24 @@ import EmptyCart from "../img/emptyCart.svg";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
+  const [flag, setFlag] = useState(1);
+  const [tot, setTot] = useState(0);
+
   const showCart = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
     });
   };
+
+  useEffect(() => {
+    let totalPrice = cartItems.reduce(function (accumulator, item) {
+      return accumulator + item.qty * item.price;
+    }, 0);
+    setTot(totalPrice);
+    console.log(tot);
+  }, [tot, flag]);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
@@ -52,8 +64,8 @@ const CartContainer = () => {
                 <CartItem
                   key={item.id}
                   item={item}
-                  //   setFlag={setFlag}
-                  //   flag={flag}
+                  setFlag={setFlag}
+                  flag={flag}
                 />
               ))}
           </div>
@@ -62,7 +74,7 @@ const CartContainer = () => {
           <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Sub Total</p>
-              <p className="text-gray-400 text-lg">$ tot</p>
+              <p className="text-gray-400 text-lg">$ {tot}</p>
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Delivery</p>
@@ -73,7 +85,9 @@ const CartContainer = () => {
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
-              <p className="text-gray-200 text-xl font-semibold">$tot + 2.5</p>
+              <p className="text-gray-200 text-xl font-semibold">
+                ${tot + 2.5}
+              </p>
             </div>
 
             {user ? (
