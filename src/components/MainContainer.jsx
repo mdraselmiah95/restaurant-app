@@ -11,7 +11,7 @@ const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
 
-  useEffect(() => {}, [scrollValue]);
+  useEffect(() => {}, [scrollValue, cartShow]);
   return (
     <div className="flex flex-col items-center justify-center w-full h-auto ">
       <HomeContainer />
@@ -45,7 +45,7 @@ const MainContainer = () => {
         />
       </section>
       <MenuContainer />
-      <CartContainer />
+      {cartShow && <CartContainer />}
     </div>
   );
 };
