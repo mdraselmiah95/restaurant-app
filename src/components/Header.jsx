@@ -42,6 +42,13 @@ const Header = () => {
     });
   };
 
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
+
   return (
     <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
       {/* desktop & tablet */}
@@ -118,7 +125,7 @@ const Header = () => {
       <div className="flex items-center justify-between w-full h-full md:hidden ">
         <div
           className="relative flex items-center justify-center"
-          // onClick={showCart}
+          onClick={showCart}
         >
           <MdShoppingBasket className="text-2xl cursor-pointer text-textColor" />
           {cartItems && cartItems.length > 0 && (
