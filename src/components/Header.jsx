@@ -64,9 +64,11 @@ const Header = () => {
           exit={{ opacity: 0, x: 200 }}
           className="flex items-center gap-24 "
         >
-          <li className="text-lg transition-all duration-100 ease-in-out cursor-pointer text-textColor hover:text-headingColor">
-            Home
-          </li>
+          <Link to={"/"}>
+            <li className="text-lg transition-all duration-100 ease-in-out cursor-pointer text-textColor hover:text-headingColor">
+              Home
+            </li>
+          </Link>
           <li className="text-lg transition-all duration-100 ease-in-out cursor-pointer text-textColor hover:text-headingColor">
             Menu
           </li>
