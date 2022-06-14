@@ -78,7 +78,10 @@ const Header = () => {
           </li>
         </motion.ul>
 
-        <div className="relative flex items-center justify-center">
+        <div
+          className="relative flex items-center justify-center"
+          onClick={showCart}
+        >
           <MdShoppingBasket className="text-2xl cursor-pointer text-textColor" />
           <div className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 bg-cartNumBg">
             <p className="text-xs font-semibold text-white">2</p>
